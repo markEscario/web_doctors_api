@@ -1,0 +1,29 @@
+{
+  "name": "projects_node_api",
+  "version": "1.0.0",
+  "description": "Ms Sql server with nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "MsSql"
+  ],
+  "author": "Mark Escario",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "fs-extra": "^10.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mssql": "^8.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
