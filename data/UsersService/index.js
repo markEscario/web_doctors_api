@@ -44,7 +44,6 @@ const createUser = async (userRequest) => {
     let user_code = Math.floor(100000 + Math.random() * 900000);
     user_code = `${user_code}`;
     let firstname = `${userRequest.firstname}`;
-    console.log('fname: ', firstname);
     let lastname = `${userRequest.lastname}`;
     let email = `${userRequest.email}`;
     let position = `${userRequest.position}`;
@@ -55,7 +54,6 @@ const createUser = async (userRequest) => {
     let transaction = new sql.Transaction()
     try {
       await transaction.begin();
-      console.log('email: ', email);
       const checkDuplicateUsername = await new sql.Request(transaction)
         .query`SELECT COUNT(USERNAME) FROM 
         UERMMMC..WEB_DOCTORS_USERS 
@@ -117,7 +115,7 @@ const editProfile = async (userRequest) => {
       WHERE ID = ${id}`;
 
       await transaction.commit();
-      return "Update successful"
+      return "UPDATE SUCCESSFUL"
 
     } catch (error) {
       await transaction.rollback();
@@ -150,11 +148,11 @@ const logIn = async (reqBody) => {
     try {
       let getUsers = await request.query`SELECT * FROM UERMMMC..WEB_DOCTORS_USERS  WHERE username = ${reqBody.username}`;
       if (!getUsers.recordset[0]) {
-        return "Invalid Username";
+        return "INVALID USERNAME";
       } else {
         let passwordIsValid = bcrypt.compareSync(reqBody.password, getUsers.recordset[0].USER_PASSWORD)
         if (!passwordIsValid) {
-          return 'Invalid Password';
+          return 'INVALID PASSWORD';
         }
         return getUsers.recordset[0];
       }

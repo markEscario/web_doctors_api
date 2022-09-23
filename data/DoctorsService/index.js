@@ -180,7 +180,6 @@ const updateDoctors = async (dRequest, dCode) => {
 
 const deleteDoctors = async (dCode) => {
   try {
-    console.log('code id: ', dCode);
     let code = `${dCode}`;
     await sql.connect(config.sql);
     let transaction = new sql.Transaction()
